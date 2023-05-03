@@ -1,7 +1,8 @@
-package com.example.projectuts_ubayalibrary_160420034
+package com.example.projectuts_ubayalibrary_160420034.view
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import com.example.projectuts_ubayalibrary_160420034.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

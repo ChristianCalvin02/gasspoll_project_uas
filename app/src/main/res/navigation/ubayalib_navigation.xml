@@ -6,7 +6,7 @@
     app:startDestination="@id/loginFragment">
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.example.projectuts_ubayalibrary_160420034.LoginFragment"
+        android:name="com.example.projectuts_ubayalibrary_160420034.view.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" >
         <action
@@ -15,17 +15,17 @@
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.example.projectuts_ubayalibrary_160420034.ProfileFragment"
+        android:name="com.example.projectuts_ubayalibrary_160420034.view.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
     <fragment
         android:id="@+id/searchFragment2"
-        android:name="com.example.projectuts_ubayalibrary_160420034.SearchFragment"
+        android:name="com.example.projectuts_ubayalibrary_160420034.view.SearchFragment"
         android:label="fragment_search"
         tools:layout="@layout/fragment_search" />
     <fragment
         android:id="@+id/libraryListFragment"
-        android:name="com.example.projectuts_ubayalibrary_160420034.LibraryListFragment"
+        android:name="com.example.projectuts_ubayalibrary_160420034.view.LibraryListFragment"
         android:label="fragment_library_list"
         tools:layout="@layout/fragment_library_list" />
 </navigation>
