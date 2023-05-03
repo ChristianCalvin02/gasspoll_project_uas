@@ -27,5 +27,18 @@
         android:id="@+id/libraryListFragment"
         android:name="com.example.projectuts_ubayalibrary_160420034.view.LibraryListFragment"
         android:label="fragment_library_list"
-        tools:layout="@layout/fragment_library_list" />
+        tools:layout="@layout/fragment_library_list" >
+        <action
+            android:id="@+id/actionLibraryDetail"
+            app:destination="@id/libraryDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/libraryDetailFragment"
+        android:name="com.example.projectuts_ubayalibrary_160420034.view.LibraryDetailFragment"
+        android:label="fragment_library_detail"
+        tools:layout="@layout/fragment_library_detail" >
+        <argument
+            android:name="id"
+            app:argType="string" />
+    </fragment>
 </navigation>
