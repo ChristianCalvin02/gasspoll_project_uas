@@ -5,10 +5,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
+import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.projectuts_ubayalibrary_160420034.R
 import com.example.projectuts_ubayalibrary_160420034.model.Library
+import com.example.projectuts_ubayalibrary_160420034.util.loadImage
 
 class LibraryListAdapter(val libraryList:ArrayList<Library>):
     RecyclerView.Adapter<LibraryListAdapter.LibraryViewHolder>(){
@@ -33,6 +35,14 @@ class LibraryListAdapter(val libraryList:ArrayList<Library>):
             val id = txtId.text.toString()
         }
         var imageView = holder.view.findViewById<ImageView>(R.id.imageView)
+        var progressBar =holder.view.findViewById<ProgressBar>(R.id.progressBar)
+        imageView.loadImage(libraryList[position].image, progressBar)
+    }
+
+    fun updateLibraryList(newLibraryList:ArrayList<Library>){
+        libraryList.clear()
+        libraryList.addAll(newLibraryList)
+        notifyDataSetChanged()
     }
 }
 
