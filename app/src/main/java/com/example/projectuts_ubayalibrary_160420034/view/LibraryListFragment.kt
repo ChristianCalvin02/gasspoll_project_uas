@@ -6,8 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.projectuts_ubayalibrary_160420034.R
+import com.example.projectuts_ubayalibrary_160420034.viewmodel.DetailViewModel
+import com.example.projectuts_ubayalibrary_160420034.viewmodel.ListViewModel
 
 class LibraryListFragment : Fragment() {
+    private lateinit var viewModel: ListViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
