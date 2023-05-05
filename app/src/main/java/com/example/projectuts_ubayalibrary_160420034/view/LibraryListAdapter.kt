@@ -33,6 +33,7 @@ class LibraryListAdapter(val libraryList:ArrayList<Library>):
         holder.view.findViewById<TextView>(R.id.txtBookName).text = libraryList[position].name
         holder.view.findViewById<Button>(R.id.btnDetail).setOnClickListener {
             val id = txtId.text.toString()
+            //update action
         }
         var imageView = holder.view.findViewById<ImageView>(R.id.imageView)
         var progressBar =holder.view.findViewById<ProgressBar>(R.id.progressBar)
