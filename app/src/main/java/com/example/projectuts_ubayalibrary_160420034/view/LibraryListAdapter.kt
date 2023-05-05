@@ -39,7 +39,7 @@ class LibraryListAdapter(val libraryList:ArrayList<Library>):
         imageView.loadImage(libraryList[position].image, progressBar)
     }
 
-    fun updateLibraryList(newLibraryList:ArrayList<Library>){
+    fun updateLibraryList(newLibraryList: ArrayList<Library>){
         libraryList.clear()
         libraryList.addAll(newLibraryList)
         notifyDataSetChanged()
