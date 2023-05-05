@@ -13,7 +13,7 @@ import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 
 class ListViewModel(application: Application):AndroidViewModel(application) {
-    val libraryLD = MutableLiveData<Library>()
+    val libraryLD = MutableLiveData<ArrayList<Library>>()
     val libraryLoadErrorLD = MutableLiveData<Boolean>()
     val loadingLD = MutableLiveData<Boolean>()
 
@@ -37,7 +37,7 @@ class ListViewModel(application: Application):AndroidViewModel(application) {
             {
                 val sType = object: TypeToken<Library>(){}.type
                 val result = Gson().fromJson<Library>(it, Library::class.java)
-                libraryLD.value = result as Library
+                libraryLD.value = result as ArrayList<Library>
                 loadingLD.value = false
                 Log.d("showvolley", it)
             },
