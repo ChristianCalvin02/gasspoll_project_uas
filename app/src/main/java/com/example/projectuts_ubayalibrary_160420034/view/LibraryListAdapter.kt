@@ -28,11 +28,13 @@ class LibraryListAdapter(val libraryList:ArrayList<Library>):
 
     override fun onBindViewHolder(holder: LibraryViewHolder, position: Int) {
         val txtId = holder.view.findViewById<TextView>(R.id.txtIdBook)
+        val txtName = holder.view.findViewById<TextView>(R.id.txtBookName)
         val btnDetail = holder.view.findViewById<Button>(R.id.btnDetail)
-        holder.view.findViewById<TextView>(R.id.txtIdBook).text = libraryList[position].id
-        holder.view.findViewById<TextView>(R.id.txtBookName).text = libraryList[position].name
-        holder.view.findViewById<Button>(R.id.btnDetail).setOnClickListener {
+        txtId.text = libraryList[position].id
+        txtName.text = libraryList[position].name
+        btnDetail.setOnClickListener {
             val id = txtId.text.toString()
+
             //update action
         }
         var imageView = holder.view.findViewById<ImageView>(R.id.imageView)
