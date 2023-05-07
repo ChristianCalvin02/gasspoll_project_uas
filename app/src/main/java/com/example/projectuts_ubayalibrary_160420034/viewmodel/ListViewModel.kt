@@ -30,13 +30,13 @@ class ListViewModel(application: Application):AndroidViewModel(application) {
         libraryLoadErrorLD.value =false
 
         queue = Volley.newRequestQueue(getApplication())
-        val url = "http://adv.jitusolution.com/student.php"
+        val url = "https://project333401.000webhostapp.com/anmp_project/ubayaLibrary.php"
 
         val stringRequest = StringRequest(
             Request.Method.GET, url,
             {
-                val sType = object: TypeToken<Library>(){}.type
-                val result = Gson().fromJson<Library>(it, Library::class.java)
+                val sType = object: TypeToken<ArrayList<Library>>(){}.type
+                val result = Gson().fromJson<ArrayList<Library>>(it, sType)
                 libraryLD.value = result as ArrayList<Library>
                 loadingLD.value = false
                 Log.d("showvolley", it)

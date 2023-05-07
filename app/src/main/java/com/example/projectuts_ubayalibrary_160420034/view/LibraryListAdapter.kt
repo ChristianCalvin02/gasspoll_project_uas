@@ -7,6 +7,7 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.example.projectuts_ubayalibrary_160420034.R
 import com.example.projectuts_ubayalibrary_160420034.model.Library
@@ -31,15 +32,16 @@ class LibraryListAdapter(val libraryList:ArrayList<Library>):
         val txtName = holder.view.findViewById<TextView>(R.id.txtBookName)
         val btnDetail = holder.view.findViewById<Button>(R.id.btnDetail)
         txtId.text = libraryList[position].id
-        txtName.text = libraryList[position].name
+        txtName.text = libraryList[position].book_name
         btnDetail.setOnClickListener {
             val id = txtId.text.toString()
-
-            //update action
+            val action = LibraryListFragmentDirections.actionLibraryDetail(id)
+            Navigation.findNavController(it).navigate(action)
         }
+
         var imageView = holder.view.findViewById<ImageView>(R.id.imageView)
-        var progressBar =holder.view.findViewById<ProgressBar>(R.id.progressBar)
-        imageView.loadImage(libraryList[position].image, progressBar)
+        var progressBar = holder.view.findViewById<ProgressBar>(R.id.progressBar)
+        imageView.loadImage(libraryList[position].image_url, progressBar!!)
     }
 
     fun updateLibraryList(newLibraryList: ArrayList<Library>){

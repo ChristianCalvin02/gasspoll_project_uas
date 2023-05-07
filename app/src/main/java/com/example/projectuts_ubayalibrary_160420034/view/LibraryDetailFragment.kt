@@ -31,7 +31,7 @@ class LibraryDetailFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProvider(this).get(DetailViewModel::class.java)
         if(arguments != null){
-            val id = "" // update jangan lupa masih ada yang kurang
+            val id = LibraryDetailFragmentArgs.fromBundle(requireArguments()).id
             viewModel.show(id)
         }
         ObserveViewModels()
@@ -39,18 +39,19 @@ class LibraryDetailFragment : Fragment() {
 
     fun ObserveViewModels(){
         val txtId = view?.findViewById<TextView>(R.id.txtIdBook)
-        val txtTitle = view?.findViewById<TextView>(R.id.txtBookName)
+        val txtTitle = view?.findViewById<TextView>(R.id.txtTitleBook)
         val txtAuthor = view?.findViewById<TextView>(R.id.txtAuthor)
         val txtDesc = view?.findViewById<TextView>(R.id.txtDesc)
-        val category = view?.findViewById<TextView>(R.id.txtCategory)
-        val poster = view?.findViewById<ImageView>(R.id.imageView)
+        val txtRating = view?.findViewById<TextView>(R.id.txtRating)
+        val poster = view?.findViewById<ImageView>(R.id.imagePoster)
 
         viewModel.libraryLD.observe(viewLifecycleOwner, Observer {
-            Picasso.get().load(it.image).resize(400, 400).into(poster)
+            Picasso.get().load(it.image_url).resize(400, 400).into(poster)
             txtId?.setText(it.id)
-            txtTitle?.setText(it.name)
+            txtTitle?.setText(it.book_name)
             txtAuthor?.setText(it.author)
-            txtDesc?.setText(it.desc)
+            txtDesc?.setText(it.description)
+            txtRating?.setText(it.rating.toString())
             val library = it
             //update menanti!!!
         })

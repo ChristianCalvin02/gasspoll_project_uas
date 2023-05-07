@@ -44,7 +44,7 @@ class LibraryListFragment : Fragment() {
             recView.visibility = View.GONE
             val txtError = view?.findViewById<TextView>(R.id.txtError)
             txtError?.visibility = View.GONE
-            val progressLoad = view?.findViewById<TextView>(R.id.progressBar)
+            val progressLoad = view?.findViewById<TextView>(R.id.progressLoad)
             progressLoad?.visibility = View.GONE
 
             viewModel.refresh()
@@ -67,7 +67,7 @@ class LibraryListFragment : Fragment() {
         })
 
         viewModel.loadingLD.observe(viewLifecycleOwner, Observer {
-            val progressLoad = view?.findViewById<ProgressBar>(R.id.progressBar)
+            val progressLoad = view?.findViewById<ProgressBar>(R.id.progressLoad)
             val recView = view?.findViewById<RecyclerView>(R.id.recyclerView)
             if(it == true){
                 recView?.visibility = View.GONE

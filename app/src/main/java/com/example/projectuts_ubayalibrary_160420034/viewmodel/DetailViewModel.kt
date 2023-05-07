@@ -24,13 +24,13 @@ class DetailViewModel(application: Application):AndroidViewModel(application) {
         libraryLoadErrorLD.value = false
 
         queue = Volley.newRequestQueue(getApplication())
-        val url = "http://adv.jitusolution.com/student.php?id=$id"
+        val url = "https://project333401.000webhostapp.com/anmp_project/ubayaLibrary.php?id=$id"
 
-        val stringRequest =StringRequest(
+        val stringRequest = StringRequest(
             com.android.volley.Request.Method.GET, url,
             {
                 val sType = object: TypeToken<Library>(){}.type
-                val result = Gson().fromJson<Library>(it, Library::class.java)
+                val result = Gson().fromJson<Library>(it, sType)
                 libraryLD.value = result as Library
                 loadingLD.value = false
                 Log.d("showvolley", it)
@@ -40,5 +40,8 @@ class DetailViewModel(application: Application):AndroidViewModel(application) {
                 loadingLD.value = false
             }
         )
+
+        stringRequest.tag = TAG
+        queue?.add(stringRequest)
     }
 }

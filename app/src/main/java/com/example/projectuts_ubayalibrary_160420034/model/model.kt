@@ -4,12 +4,14 @@ import com.google.gson.annotations.SerializedName
 
 data class Library(
     val id:String?,
-    @SerializedName("book_name")
-    val name:String?,
-    @SerializedName("description")
-    val desc:String?,
-    @SerializedName("authors")
+    val book_name:String?,
+    val description:String?,
     val author:String?,
-    @SerializedName("image_url")
-    val image:String?
+    val rating:Double,
+    val image_url:String?
+)
+
+data class User(
+    val id:String?,
+    val user_name:String?
 )
