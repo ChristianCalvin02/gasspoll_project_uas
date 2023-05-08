@@ -39,7 +39,7 @@ class LibraryListAdapter(val libraryList:ArrayList<Library>):
             Navigation.findNavController(it).navigate(action)
         }
 
-        var imageView = holder.view.findViewById<ImageView>(R.id.imageView)
+        var imageView = holder.view.findViewById<ImageView>(R.id.imageViewLibrary)
         var progressBar = holder.view.findViewById<ProgressBar>(R.id.progressBar)
         imageView.loadImage(libraryList[position].image_url, progressBar!!)
     }

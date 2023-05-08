@@ -6,7 +6,7 @@
     android:layout_height="wrap_content">
 
     <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
@@ -24,9 +24,9 @@
             android:layout_height="match_parent">
 
             <ImageView
-                android:id="@+id/imageViewLibrary"
+                android:id="@+id/imageViewRating"
                 android:layout_width="100dp"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
                 android:scaleType="centerCrop"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -34,57 +34,55 @@
                 tools:srcCompat="@tools:sample/avatars" />
 
             <TextView
-                android:id="@+id/txtIdBook"
+                android:id="@+id/txtIdBookRat"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="16dp"
                 android:text="ID"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toEndOf="@+id/imageViewLibrary"
+                app:layout_constraintHorizontal_bias="0.058"
+                app:layout_constraintStart_toEndOf="@+id/imageViewRating"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/txtBookName"
+                android:id="@+id/txtBookTitleRating"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
-                android:text="Book Name"
+                android:text="Title"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toEndOf="@+id/imageViewLibrary"
-                app:layout_constraintTop_toBottomOf="@+id/txtIdBook" />
+                app:layout_constraintHorizontal_bias="0.062"
+                app:layout_constraintStart_toEndOf="@+id/imageViewRating"
+                app:layout_constraintTop_toBottomOf="@+id/txtIdBookRat" />
 
-            <Button
-                android:id="@+id/btnDetail"
-                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            <RatingBar
+                android:id="@+id/ratingBook"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"
-                android:text="Details"
-                android:textStyle="bold"
+                android:contentDescription="rating"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.912"
-                app:layout_constraintStart_toEndOf="@+id/imageViewLibrary"
-                app:layout_constraintTop_toBottomOf="@+id/txtBookName"
-                app:layout_constraintVertical_bias="0.0" />
+                app:layout_constraintHorizontal_bias="0.157"
+                app:layout_constraintStart_toEndOf="@+id/imageViewRating"
+                app:layout_constraintTop_toBottomOf="@+id/txtBookTitleRating" />
 
             <ProgressBar
-                android:id="@+id/progressBar"
+                android:id="@+id/progressLoadRating"
                 style="?android:attr/progressBarStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="@+id/imageViewLibrary"
-                app:layout_constraintEnd_toEndOf="@+id/imageViewLibrary"
+                app:layout_constraintBottom_toBottomOf="@+id/imageViewRating"
+                app:layout_constraintEnd_toEndOf="@+id/imageViewRating"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/imageViewLibrary" />
+                app:layout_constraintTop_toTopOf="@+id/imageViewRating" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

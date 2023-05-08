@@ -3,38 +3,60 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/ubayalib_navigation"
-    app:startDestination="@id/libraryListFragment">
+    app:startDestination="@id/itemHome">
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.example.projectuts_ubayalibrary_160420034.view.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" />
     <fragment
-        android:id="@+id/profileFragment"
+        android:id="@+id/itemProfile"
         android:name="com.example.projectuts_ubayalibrary_160420034.view.ProfileFragment"
-        android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" />
+        android:label="Profile"
+        tools:layout="@layout/fragment_profile">
+        <action
+            android:id="@+id/action_profileFragment_to_libraryListFragment"
+            app:destination="@id/itemHome" />
+    </fragment>
     <fragment
         android:id="@+id/searchFragment2"
         android:name="com.example.projectuts_ubayalibrary_160420034.view.SearchFragment"
         android:label="fragment_search"
         tools:layout="@layout/fragment_search" />
     <fragment
-        android:id="@+id/libraryListFragment"
+        android:id="@+id/itemHome"
         android:name="com.example.projectuts_ubayalibrary_160420034.view.LibraryListFragment"
-        android:label="fragment_library_list"
-        tools:layout="@layout/fragment_library_list" >
+        android:label="Home Application"
+        tools:layout="@layout/fragment_library_list">
         <action
             android:id="@+id/actionLibraryDetail"
             app:destination="@id/libraryDetailFragment" />
+        <action
+            android:id="@+id/action_libraryListFragment_to_profileFragment"
+            app:destination="@id/itemProfile" />
+        <action
+            android:id="@+id/action_libraryListFragment_to_ratingListFragment"
+            app:destination="@id/itemRating" />
     </fragment>
     <fragment
         android:id="@+id/libraryDetailFragment"
         android:name="com.example.projectuts_ubayalibrary_160420034.view.LibraryDetailFragment"
-        android:label="fragment_library_detail"
-        tools:layout="@layout/fragment_library_detail" >
+        android:label="Library Detail"
+        tools:layout="@layout/fragment_library_detail">
         <argument
             android:name="id"
             app:argType="string" />
+        <action
+            android:id="@+id/actionLibraryList"
+            app:destination="@id/itemHome" />
+    </fragment>
+    <fragment
+        android:id="@+id/itemRating"
+        android:name="com.example.projectuts_ubayalibrary_160420034.view.RatingListFragment"
+        android:label="Rating"
+        tools:layout="@layout/fragment_rating_list">
+        <action
+            android:id="@+id/action_ratingListFragment_to_libraryListFragment"
+            app:destination="@id/itemHome" />
     </fragment>
 </navigation>

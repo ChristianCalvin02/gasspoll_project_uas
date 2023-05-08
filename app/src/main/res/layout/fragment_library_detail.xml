@@ -26,7 +26,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="28dp"
             android:text="Title"
-            android:textSize="34sp"
+            android:textSize="28sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
@@ -41,6 +41,8 @@
             android:layout_marginTop="20dp"
             android:text="Description"
             android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/textView"
             app:layout_constraintTop_toBottomOf="@+id/txtRating" />
 

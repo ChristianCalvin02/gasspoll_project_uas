@@ -8,9 +8,9 @@
         android:title="Home"
         app:showAsAction="always" />
     <item
-        android:id="@+id/itemSearch"
-        android:icon="@drawable/baseline_search_24"
-        android:title="Search"
+        android:id="@+id/itemRating"
+        android:icon="@drawable/baseline_star_rate_24"
+        android:title="Rating"
         app:showAsAction="always" />
     <item
         android:id="@+id/itemProfile"
