@@ -13,5 +13,7 @@ data class Library(
 
 data class User(
     val id:String?,
-    val user_name:String?
+    val user_name:String?,
+    val password: String?,
+    val name: String?
 )
