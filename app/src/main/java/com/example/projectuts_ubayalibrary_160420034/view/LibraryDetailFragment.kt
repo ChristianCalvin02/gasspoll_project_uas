@@ -53,7 +53,6 @@ class LibraryDetailFragment : Fragment() {
             txtDesc?.setText(it.description)
             txtRating?.setText(it.rating.toString())
             val library = it
-            //update menanti!!!
         })
     }
 }
