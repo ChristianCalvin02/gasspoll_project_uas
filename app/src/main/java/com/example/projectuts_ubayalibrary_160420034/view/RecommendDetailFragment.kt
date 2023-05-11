@@ -1,32 +1,32 @@
 package com.example.projectuts_ubayalibrary_160420034.view
 
 import android.os.Bundle
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.projectuts_ubayalibrary_160420034.R
-import com.example.projectuts_ubayalibrary_160420034.viewmodel.DetailViewModel
+import com.example.projectuts_ubayalibrary_160420034.viewmodel.RecommendDetailViewModel
 import com.squareup.picasso.Picasso
 
-class LibraryDetailFragment : Fragment() {
-    private lateinit var viewModel: DetailViewModel
+class RecommendDetailFragment : Fragment() {
+    private lateinit var viewModel: RecommendDetailViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_library_detail, container, false)
+        return inflater.inflate(R.layout.fragment_recommend_detail, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel = ViewModelProvider(this).get(DetailViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(RecommendDetailViewModel::class.java)
         if(arguments != null){
             val id = LibraryDetailFragmentArgs.fromBundle(requireArguments()).id
             viewModel.show(id)

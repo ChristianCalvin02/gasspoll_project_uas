@@ -44,6 +44,9 @@
         <action
             android:id="@+id/action_libraryListFragment_to_ratingListFragment"
             app:destination="@id/itemRating" />
+        <action
+            android:id="@+id/action_itemHome_to_recommendedBookFragment"
+            app:destination="@id/itemRecom" />
     </fragment>
     <fragment
         android:id="@+id/libraryDetailFragment"
@@ -77,5 +80,26 @@
         <action
             android:id="@+id/action_registerFragment_to_itemProfile"
             app:destination="@id/itemProfile" />
+    </fragment>
+    <fragment
+        android:id="@+id/itemRecom"
+        android:name="com.example.projectuts_ubayalibrary_160420034.view.RecommendedBookFragment"
+        android:label="Recommended Page"
+        tools:layout="@layout/fragment_recommended_book">
+        <action
+            android:id="@+id/action_itemRecom_to_itemHome"
+            app:destination="@id/itemHome" />
+        <action
+            android:id="@+id/action_itemRecom_to_recommendDetailFragment"
+            app:destination="@id/recommendDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/recommendDetailFragment"
+        android:name="com.example.projectuts_ubayalibrary_160420034.view.RecommendDetailFragment"
+        android:label="fragment_recommend_detail"
+        tools:layout="@layout/fragment_recommend_detail" >
+        <argument
+            android:name="id"
+            app:argType="string" />
     </fragment>
 </navigation>

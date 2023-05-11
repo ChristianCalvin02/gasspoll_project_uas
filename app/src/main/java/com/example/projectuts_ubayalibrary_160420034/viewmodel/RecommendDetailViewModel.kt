@@ -12,32 +12,27 @@ import com.example.projectuts_ubayalibrary_160420034.model.Library
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 
-class RecomendedListViewModel(application: Application): AndroidViewModel(application) {
-    val libraryLD = MutableLiveData<ArrayList<Library>>()
+class RecommendDetailViewModel(application: Application): AndroidViewModel(application) {
+    val libraryLD = MutableLiveData<Library>()
     val libraryLoadErrorLD = MutableLiveData<Boolean>()
     val loadingLD = MutableLiveData<Boolean>()
 
     val TAG ="volleyTag"
     private var queue: RequestQueue? = null
 
-    override fun onCleared() {
-        super.onCleared()
-        queue?.cancelAll(TAG)
-    }
-
-    fun refresh(){
+    fun show(id: String){
         loadingLD.value = true
-        libraryLoadErrorLD.value =false
+        libraryLoadErrorLD.value = false
 
         queue = Volley.newRequestQueue(getApplication())
-        val url = "https://project333401.000webhostapp.com/anmp_project/ubayaLibraryRecommended.php"
+        val url = "https://project333401.000webhostapp.com/anmp_project/ubayaLibraryRecommended.php?id=$id"
 
         val stringRequest = StringRequest(
             Request.Method.GET, url,
             {
-                val sType = object: TypeToken<ArrayList<Library>>(){}.type
-                val result = Gson().fromJson<ArrayList<Library>>(it, sType)
-                libraryLD.value = result as ArrayList<Library>
+                val sType = object: TypeToken<Library>(){}.type
+                val result = Gson().fromJson<Library>(it, sType)
+                libraryLD.value = result as Library
                 loadingLD.value = false
                 Log.d("showvolley", it)
             },
