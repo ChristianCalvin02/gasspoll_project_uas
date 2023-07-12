@@ -23,7 +23,9 @@ data class User(
     @ColumnInfo(name="password")
     val password: String?,
     @ColumnInfo(name="name")
-    val name: String?
+    val name: String?,
+    @ColumnInfo(name="image_url")
+    val image_url: String,
 ){
     @PrimaryKey(autoGenerate = true)
     var id:Int = 0
