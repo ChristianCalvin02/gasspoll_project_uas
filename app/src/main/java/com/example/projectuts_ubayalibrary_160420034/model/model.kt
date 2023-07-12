@@ -1,5 +1,8 @@
 package com.example.projectuts_ubayalibrary_160420034.model
 
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 
 data class Library(
@@ -11,9 +14,18 @@ data class Library(
     val image_url:String?
 )
 
+@Entity
 data class User(
-    val id:String?,
+    /*@ColumnInfo(name="id")
+    val id:String?,*/
+    @ColumnInfo(name="user_name")
     val user_name:String?,
+    @ColumnInfo(name="password")
     val password: String?,
+    @ColumnInfo(name="name")
     val name: String?
-)
+){
+    @PrimaryKey(autoGenerate = true)
+    var id:Int = 0
+
+}

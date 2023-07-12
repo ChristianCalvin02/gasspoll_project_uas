@@ -11,6 +11,7 @@ import com.squareup.picasso.Callback
 import com.squareup.picasso.Picasso
 import java.lang.Exception
 
+val DB_NAME = "newlibrarydb"
 fun createNotifChannel(context: Context, importance: Int, showBagde: Boolean, name: String, desc:String){
     if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
         val channelID = "${context.packageName}-$name"
