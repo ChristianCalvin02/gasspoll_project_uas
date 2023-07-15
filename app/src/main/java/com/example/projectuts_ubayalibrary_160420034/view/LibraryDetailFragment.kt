@@ -6,22 +6,32 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.projectuts_ubayalibrary_160420034.R
+import com.example.projectuts_ubayalibrary_160420034.databinding.FragmentLibraryDetailBinding
 import com.example.projectuts_ubayalibrary_160420034.viewmodel.DetailViewModel
 import com.squareup.picasso.Picasso
 
 class LibraryDetailFragment : Fragment() {
     private lateinit var viewModel: DetailViewModel
+    private lateinit var dataBinding: FragmentLibraryDetailBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        dataBinding = DataBindingUtil.inflate<FragmentLibraryDetailBinding>(
+            inflater,
+            R.layout.fragment_library_detail,
+            container,
+            false
+        )
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_library_detail, container, false)
+        //return inflater.inflate(R.layout.fragment_library_detail, container, false)
+        return dataBinding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -35,7 +45,11 @@ class LibraryDetailFragment : Fragment() {
     }
 
     fun ObserveViewModels(){
-        val txtId = view?.findViewById<TextView>(R.id.txtIdBook)
+        viewModel.libraryLD.observe(viewLifecycleOwner, Observer {
+            dataBinding.library = it
+            val library = it
+        })
+        /*val txtId = view?.findViewById<TextView>(R.id.txtIdBook)
         val txtTitle = view?.findViewById<TextView>(R.id.txtTitleBook)
         val txtAuthor = view?.findViewById<TextView>(R.id.txtAuthor)
         val txtDesc = view?.findViewById<TextView>(R.id.txtDesc)
@@ -50,6 +64,6 @@ class LibraryDetailFragment : Fragment() {
             txtDesc?.setText(it.description)
             txtRating?.setText(it.rating.toString())
             val library = it
-        })
+        })*/
     }
 }
