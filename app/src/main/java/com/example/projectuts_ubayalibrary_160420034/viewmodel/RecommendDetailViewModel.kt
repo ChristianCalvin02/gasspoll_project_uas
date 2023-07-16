@@ -20,7 +20,7 @@ class RecommendDetailViewModel(application: Application): AndroidViewModel(appli
     val TAG ="volleyTag"
     private var queue: RequestQueue? = null
 
-    fun show(id: String){
+    fun show(id: Int){
         loadingLD.value = true
         libraryLoadErrorLD.value = false
 

@@ -37,10 +37,13 @@ class LibraryDetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProvider(this).get(DetailViewModel::class.java)
-        if(arguments != null){
+
+        val id = LibraryDetailFragmentArgs.fromBundle(requireArguments()).id
+        viewModel.show(id)
+        /*if(arguments != null){
             val id = LibraryDetailFragmentArgs.fromBundle(requireArguments()).id
             viewModel.show(id)
-        }
+        }*/
         ObserveViewModels()
     }
 

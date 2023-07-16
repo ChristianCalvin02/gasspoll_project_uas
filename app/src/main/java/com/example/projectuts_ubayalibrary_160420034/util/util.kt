@@ -6,12 +6,23 @@ import android.os.Build
 import android.view.View
 import android.widget.ImageView
 import android.widget.ProgressBar
+import androidx.databinding.BindingAdapter
+import androidx.room.Room
 import com.example.projectuts_ubayalibrary_160420034.R
+import com.example.projectuts_ubayalibrary_160420034.model.LibraryDatabase
 import com.squareup.picasso.Callback
 import com.squareup.picasso.Picasso
 import java.lang.Exception
 
 val DB_NAME = "newlibrarydb"
+
+fun buildDB(context: Context):LibraryDatabase{
+    val db = Room.databaseBuilder(context, LibraryDatabase::class.java, DB_NAME)
+        .addMigrations()
+        .build()
+    return db
+}
+
 fun createNotifChannel(context: Context, importance: Int, showBagde: Boolean, name: String, desc:String){
     if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
         val channelID = "${context.packageName}-$name"
@@ -35,4 +46,9 @@ fun ImageView.loadImage(url:String?, progressBar: ProgressBar){
             override fun onError(e: Exception?) {
             }
         })
+}
+
+@BindingAdapter("android:imageUrl", "android:progressBar")
+fun loadPhotoUrl(view: ImageView, url: String?, progressBar: ProgressBar){
+    view.loadImage(url, progressBar)
 }

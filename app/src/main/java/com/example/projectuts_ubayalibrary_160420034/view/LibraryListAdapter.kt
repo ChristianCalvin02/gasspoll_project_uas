@@ -24,13 +24,8 @@ class LibraryListAdapter(val libraryList:ArrayList<Library>):
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int):LibraryViewHolder{
         val inflater = LayoutInflater.from(parent.context)
-        val view = DataBindingUtil.inflate<LibraryListItemBinding>(inflater,
-            R.layout.library_list_item, parent, false)
+        val view = LibraryListItemBinding.inflate(inflater, parent, false)
         return LibraryViewHolder(view)
-    }
-
-    override fun getItemCount(): Int {
-        return libraryList.size
     }
 
     override fun onBindViewHolder(holder: LibraryViewHolder, position: Int) {
@@ -52,14 +47,18 @@ class LibraryListAdapter(val libraryList:ArrayList<Library>):
         imageView.loadImage(libraryList[position].image_url, progressBar!!)*/
     }
 
-    fun updateLibraryList(newLibraryList: ArrayList<Library>){
+    override fun getItemCount(): Int {
+        return libraryList.size
+    }
+    fun updateLibraryList(newLibraryList: List<Library>){
         libraryList.clear()
         libraryList.addAll(newLibraryList)
         notifyDataSetChanged()
     }
 
     override fun onButtonDetailClick(v: View) {
-        val action = LibraryListFragmentDirections.actionLibraryDetail(v.tag.toString())
+        val id = v.tag.toString().toInt()
+        val action = LibraryListFragmentDirections.actionLibraryDetail(id)
         Navigation.findNavController(v).navigate(action)
     }
 }

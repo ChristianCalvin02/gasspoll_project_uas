@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ProgressBar
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -13,6 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.example.projectuts_ubayalibrary_160420034.R
+import com.example.projectuts_ubayalibrary_160420034.util.buildDB
 import com.example.projectuts_ubayalibrary_160420034.viewmodel.ListViewModel
 
 class LibraryListFragment : Fragment() {
@@ -41,14 +43,14 @@ class LibraryListFragment : Fragment() {
 
         val swipe = view.findViewById<SwipeRefreshLayout>(R.id.refreshLayout)
         swipe.setOnRefreshListener {
-            recView.visibility = View.GONE
+            /*recView.visibility = View.GONE
             val txtError = view?.findViewById<TextView>(R.id.txtError)
             txtError?.visibility = View.GONE
             val progressLoad = view?.findViewById<TextView>(R.id.progressLoad)
             progressLoad?.visibility = View.GONE
 
             viewModel.refresh()
-            swipe.isRefreshing = false
+            swipe.isRefreshing = false*/
         }
     }
 
@@ -57,7 +59,7 @@ class LibraryListFragment : Fragment() {
             libraryListAdapter.updateLibraryList(it)
         })
 
-        viewModel.libraryLoadErrorLD.observe(viewLifecycleOwner, Observer{
+        /*viewModel.libraryLoadErrorLD.observe(viewLifecycleOwner, Observer{
             val txtError = view?.findViewById<TextView>(R.id.txtError)
             if(it == true){
                 txtError?.visibility = View.VISIBLE
@@ -76,6 +78,6 @@ class LibraryListFragment : Fragment() {
                 recView?.visibility = View.VISIBLE
                 progressLoad?.visibility = View.GONE
             }
-        })
+        })*/
     }
 }

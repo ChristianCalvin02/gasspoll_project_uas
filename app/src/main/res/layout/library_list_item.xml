@@ -39,18 +39,20 @@
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:scaleType="centerCrop"
+                    android:imageUrl="@{library.image_url}"
+                    android:progressBar="@{progressBar}"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     tools:srcCompat="@tools:sample/avatars" />
 
                 <TextView
-                    android:id="@+id/txtIdBook"
+                    android:id="@+id/txtNameBook"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
-                    android:text="ID"
+                    android:text="@{library.book_name}"
                     android:textSize="18sp"
                     android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -59,17 +61,17 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/txtBookName"
+                    android:id="@+id/txtAuthorBook"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
-                    android:text="Book Name"
+                    android:text="@{library.author}"
                     android:textSize="18sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toEndOf="@+id/imageViewLibrary"
-                    app:layout_constraintTop_toBottomOf="@+id/txtIdBook" />
+                    app:layout_constraintTop_toBottomOf="@+id/txtNameBook" />
 
                 <Button
                     android:id="@+id/btnDetail"
@@ -86,7 +88,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.912"
                     app:layout_constraintStart_toEndOf="@+id/imageViewLibrary"
-                    app:layout_constraintTop_toBottomOf="@+id/txtBookName"
+                    app:layout_constraintTop_toBottomOf="@+id/txtAuthorBook"
                     app:layout_constraintVertical_bias="0.0" />
 
                 <ProgressBar

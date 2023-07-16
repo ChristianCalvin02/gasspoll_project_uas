@@ -55,7 +55,7 @@
         tools:layout="@layout/fragment_library_detail">
         <argument
             android:name="id"
-            app:argType="string" />
+            app:argType="integer" />
         <action
             android:id="@+id/actionLibraryList"
             app:destination="@id/itemHome" />
@@ -100,6 +100,6 @@
         tools:layout="@layout/fragment_recommend_detail" >
         <argument
             android:name="id"
-            app:argType="string" />
+            app:argType="integer" />
     </fragment>
 </navigation>

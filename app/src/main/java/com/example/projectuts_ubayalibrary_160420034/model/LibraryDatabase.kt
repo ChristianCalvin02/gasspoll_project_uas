@@ -19,10 +19,10 @@ abstract class LibraryDatabase:RoomDatabase(){
             Room.databaseBuilder(
                 context.applicationContext,LibraryDatabase::class.java, "newlibrarydb"
             )
-               /* .addMigrations(MIGRATION_1_2)
-                .build()*/
+                .addMigrations()
+                .build()
 
-        /*operator fun invoke(context: Context){
+        operator fun invoke(context: Context){
             if(instance!=null){
                 synchronized(LOCK){
                     instance ?: buildDatabase(context).also {
@@ -30,6 +30,6 @@ abstract class LibraryDatabase:RoomDatabase(){
                     }
                 }
             }
-        }*/
+        }
     }
 }

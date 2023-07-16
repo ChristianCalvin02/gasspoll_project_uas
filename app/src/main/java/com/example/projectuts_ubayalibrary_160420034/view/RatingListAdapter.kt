@@ -31,7 +31,7 @@ class RatingListAdapter(val ratingList:ArrayList<Library>):
         val txtId = holder.view.findViewById<TextView>(R.id.txtIdBookRat)
         val txtName = holder.view.findViewById<TextView>(R.id.txtBookTitleRating)
         val rating = holder.view.findViewById<RatingBar>(R.id.ratingBook)
-        txtId.text = ratingList[position].id
+        txtId.text = ratingList[position].id.toString()
         txtName.text = ratingList[position].book_name
         rating.rating = ratingList[position].rating.toFloat()
 

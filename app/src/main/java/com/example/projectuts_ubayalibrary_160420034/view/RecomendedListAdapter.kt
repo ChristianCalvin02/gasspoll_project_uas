@@ -29,13 +29,13 @@ class RecomendedListAdapter(val recommendedList:ArrayList<Library>):
     }
 
     override fun onBindViewHolder(holder: RecomendedViewHolder, position: Int) {
-        val txtId = holder.view.findViewById<TextView>(R.id.txtIdBook)
-        val txtName = holder.view.findViewById<TextView>(R.id.txtBookName)
+        val txtId = holder.view.findViewById<TextView>(R.id.txtNameBook)
+        val txtName = holder.view.findViewById<TextView>(R.id.txtAuthorBook)
         val btnDetail = holder.view.findViewById<Button>(R.id.btnDetail)
-        txtId.text = recommendedList[position].id
+        txtId.text = recommendedList[position].id.toString()
         txtName.text = recommendedList[position].book_name
         btnDetail.setOnClickListener {
-            val id = txtId.text.toString()
+            val id = txtId.text.toString().toInt()
             val action = RecommendedBookFragmentDirections.actionItemRecomToRecommendDetailFragment(id)
             Navigation.findNavController(it).navigate(action)
         }
