@@ -42,14 +42,14 @@ class RecommendedBookFragment : Fragment() {
 
         val swipe = view.findViewById<SwipeRefreshLayout>(R.id.refreshLayout)
         swipe.setOnRefreshListener {
-            recView.visibility = View.GONE
+            /*recView.visibility = View.GONE
             val txtError = view?.findViewById<TextView>(R.id.txtErrorRecommend)
             txtError?.visibility = View.GONE
             val progressLoad = view?.findViewById<TextView>(R.id.progressBarRecommend)
             progressLoad?.visibility = View.GONE
 
             viewModel.refresh()
-            swipe.isRefreshing = false
+            swipe.isRefreshing = false*/
         }
     }
 
@@ -58,7 +58,7 @@ class RecommendedBookFragment : Fragment() {
             libraryListAdapter.updateLibraryList(it)
         })
 
-        viewModel.libraryLoadErrorLD.observe(viewLifecycleOwner, Observer{
+        /*viewModel.libraryLoadErrorLD.observe(viewLifecycleOwner, Observer{
             val txtError = view?.findViewById<TextView>(R.id.txtErrorRecommend)
             if(it == true){
                 txtError?.visibility = View.VISIBLE
@@ -77,6 +77,6 @@ class RecommendedBookFragment : Fragment() {
                 recView?.visibility = View.VISIBLE
                 progressLoad?.visibility = View.GONE
             }
-        })
+        })*/
     }
 }

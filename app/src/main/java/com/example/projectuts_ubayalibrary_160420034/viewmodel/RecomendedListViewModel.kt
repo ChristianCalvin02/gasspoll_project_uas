@@ -9,27 +9,41 @@ import com.android.volley.RequestQueue
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.example.projectuts_ubayalibrary_160420034.model.Library
+import com.example.projectuts_ubayalibrary_160420034.util.buildDB
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.launch
+import kotlin.coroutines.CoroutineContext
 
-class RecomendedListViewModel(application: Application): AndroidViewModel(application) {
-    val libraryLD = MutableLiveData<ArrayList<Library>>()
+class RecomendedListViewModel(application: Application): AndroidViewModel(application), CoroutineScope {
+    val libraryLD = MutableLiveData<List<Library>>()
     val libraryLoadErrorLD = MutableLiveData<Boolean>()
     val loadingLD = MutableLiveData<Boolean>()
+    private var job = Job()
 
-    val TAG ="volleyTag"
-    private var queue: RequestQueue? = null
+    /*val TAG ="volleyTag"
+    private var queue: RequestQueue? = null*/
 
-    override fun onCleared() {
+    override val coroutineContext: CoroutineContext
+        get() = job + Dispatchers.IO
+
+    /*override fun onCleared() {
         super.onCleared()
         queue?.cancelAll(TAG)
-    }
+    }*/
 
     fun refresh(){
         loadingLD.value = true
         libraryLoadErrorLD.value =false
 
-        queue = Volley.newRequestQueue(getApplication())
+        launch {
+            val db = buildDB(getApplication())
+            libraryLD.postValue(db.libraryDao().selectAllLibrary())
+        }
+        /*queue = Volley.newRequestQueue(getApplication())
         val url = "https://project333401.000webhostapp.com/anmp_project/ubayaLibraryRecommended.php"
 
         val stringRequest = StringRequest(
@@ -48,6 +62,6 @@ class RecomendedListViewModel(application: Application): AndroidViewModel(applic
         )
 
         stringRequest.tag = TAG
-        queue?.add(stringRequest)
+        queue?.add(stringRequest)*/
     }
 }

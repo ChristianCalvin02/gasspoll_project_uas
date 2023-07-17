@@ -40,7 +40,7 @@ class RatingListAdapter(val ratingList:ArrayList<Library>):
         imageView.loadImage(ratingList[position].image_url, progressLoad!!)
     }
 
-    fun updateRatingList(newLibraryList: ArrayList<Library>){
+    fun updateRatingList(newLibraryList: List<Library>){
         ratingList.clear()
         ratingList.addAll(newLibraryList)
         notifyDataSetChanged()

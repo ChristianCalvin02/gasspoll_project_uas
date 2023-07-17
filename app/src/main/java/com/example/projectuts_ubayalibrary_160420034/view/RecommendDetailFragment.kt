@@ -7,26 +7,37 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.projectuts_ubayalibrary_160420034.R
+import com.example.projectuts_ubayalibrary_160420034.databinding.FragmentRecommendDetailBinding
 import com.example.projectuts_ubayalibrary_160420034.viewmodel.RecommendDetailViewModel
 import com.squareup.picasso.Picasso
 
 class RecommendDetailFragment : Fragment() {
     private lateinit var viewModel: RecommendDetailViewModel
+    private lateinit var dataBinding: FragmentRecommendDetailBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        dataBinding = DataBindingUtil.inflate<FragmentRecommendDetailBinding>(
+            inflater,
+            R.layout.fragment_recommend_detail,
+            container,
+            false
+        )
+        return dataBinding.root
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_recommend_detail, container, false)
+        //return inflater.inflate(R.layout.fragment_recommend_detail, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProvider(this).get(RecommendDetailViewModel::class.java)
+
         val id = LibraryDetailFragmentArgs.fromBundle(requireArguments()).id
         viewModel.show(id)
         /*if(arguments != null){
@@ -37,7 +48,11 @@ class RecommendDetailFragment : Fragment() {
     }
 
     fun ObserveViewModels(){
-        val txtId = view?.findViewById<TextView>(R.id.txtNameBook)
+        viewModel.libraryLD.observe(viewLifecycleOwner, Observer {
+            dataBinding.library = it
+            val library = it
+        })
+        /*val txtId = view?.findViewById<TextView>(R.id.txtNameBook)
         val txtTitle = view?.findViewById<TextView>(R.id.txtTitleBook)
         val txtAuthor = view?.findViewById<TextView>(R.id.txtAuthor)
         val txtDesc = view?.findViewById<TextView>(R.id.txtDesc)
@@ -52,6 +67,6 @@ class RecommendDetailFragment : Fragment() {
             txtDesc?.setText(it.description)
             txtRating?.setText(it.rating.toString())
             val library = it
-        })
+        })*/
     }
 }

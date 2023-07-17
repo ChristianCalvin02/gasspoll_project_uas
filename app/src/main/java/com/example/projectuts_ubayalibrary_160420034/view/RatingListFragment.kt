@@ -41,14 +41,14 @@ class RatingListFragment : Fragment() {
 
         val swipe = view.findViewById<SwipeRefreshLayout>(R.id.refreshLayout)
         swipe.setOnRefreshListener {
-            recView.visibility = View.GONE
+            /*recView.visibility = View.GONE
             val txtError = view?.findViewById<TextView>(R.id.txtErrorLoad)
             txtError?.visibility = View.GONE
             val progressLoad = view?.findViewById<TextView>(R.id.progressBarRating)
             progressLoad?.visibility = View.GONE
 
             viewModel.refresh()
-            swipe.isRefreshing = false
+            swipe.isRefreshing = false*/
         }
     }
 
@@ -57,7 +57,7 @@ class RatingListFragment : Fragment() {
             ratingListAdapter.updateRatingList(it)
         })
 
-        viewModel.libraryLoadErrorLD.observe(viewLifecycleOwner, Observer{
+        /*viewModel.libraryLoadErrorLD.observe(viewLifecycleOwner, Observer{
             val txtError = view?.findViewById<TextView>(R.id.txtErrorLoad)
             if(it == true){
                 txtError?.visibility = View.VISIBLE
@@ -76,6 +76,6 @@ class RatingListFragment : Fragment() {
                 recView?.visibility = View.VISIBLE
                 progressLoad?.visibility = View.GONE
             }
-        })
+        })*/
     }
 }
