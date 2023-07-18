@@ -11,6 +11,8 @@ interface RegisterClickListener{
     fun onButtonRegisterClick(v: View, user: User)
 }
 
-interface LoginToRegisterClickListener{
+interface LoginListener{
     fun onButtonToRegisterClick(v: View)
+
+    fun onButtonSubmit(v: View, user: User)
 }

@@ -13,11 +13,12 @@ import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.example.projectuts_ubayalibrary_160420034.R
 import com.example.projectuts_ubayalibrary_160420034.databinding.FragmentLoginBinding
+import com.example.projectuts_ubayalibrary_160420034.model.User
 import com.example.projectuts_ubayalibrary_160420034.viewmodel.ListViewModel
 import com.example.projectuts_ubayalibrary_160420034.viewmodel.userViewModel
 import com.google.android.material.textfield.TextInputLayout
 
-class LoginFragment : Fragment(), LoginToRegisterClickListener{
+class LoginFragment : Fragment(), LoginListener{
     private lateinit var viewModel:userViewModel
     private lateinit var databinding:FragmentLoginBinding
 
@@ -60,6 +61,10 @@ class LoginFragment : Fragment(), LoginToRegisterClickListener{
     override fun onButtonToRegisterClick(v: View) {
         val action = LoginFragmentDirections.actionLoginFragmentToRegisterFragment()
         Navigation.findNavController(v).navigate(action)
+    }
+
+    override fun onButtonSubmit(v: View, user: User) {
+        TODO("Not yet implemented")
     }
     //Note Error tidak diketahui
 /*
