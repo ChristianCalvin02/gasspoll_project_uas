@@ -41,7 +41,7 @@ class RecomendedListViewModel(application: Application): AndroidViewModel(applic
 
         launch {
             val db = buildDB(getApplication())
-            libraryLD.postValue(db.libraryDao().selectAllLibrary())
+            libraryLD.postValue(db.libraryDao().selectLibraryRating())
         }
         /*queue = Volley.newRequestQueue(getApplication())
         val url = "https://project333401.000webhostapp.com/anmp_project/ubayaLibraryRecommended.php"

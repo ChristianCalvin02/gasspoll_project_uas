@@ -12,14 +12,23 @@ import androidx.databinding.BindingAdapter
 import androidx.room.Room
 import com.example.projectuts_ubayalibrary_160420034.R
 import com.example.projectuts_ubayalibrary_160420034.model.LibraryDatabase
+import com.example.projectuts_ubayalibrary_160420034.model.UserDatabase
 import com.squareup.picasso.Callback
 import com.squareup.picasso.Picasso
 import java.lang.Exception
 
 val DB_NAME = "newlibrarydb"
+val DB_NAME2 = "newuserdb"
 
 fun buildDB(context: Context):LibraryDatabase{
     val db = Room.databaseBuilder(context, LibraryDatabase::class.java, DB_NAME)
+        .addMigrations()
+        .build()
+    return db
+}
+
+fun buildDB2(context: Context):UserDatabase{
+    val db = Room.databaseBuilder(context, UserDatabase::class.java, DB_NAME2)
         .addMigrations()
         .build()
     return db
