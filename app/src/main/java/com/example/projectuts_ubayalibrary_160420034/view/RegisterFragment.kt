@@ -33,9 +33,23 @@ class RegisterFragment : Fragment(), RegisterClickListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val btnRegister = view.findViewById<Button>(R.id.btnRegis)
+        var username = view.findViewById<EditText>(R.id.txtRegisUser)
+        var password = view.findViewById<EditText>(R.id.txtRegisPassword)
+        val usern = username.text
+        val passw = password.text
+        //val user = User(usern.toString(), passw.toString(), "", "")
+        btnRegister.setOnClickListener {
+            //databinding.user = User(usern.toString(), passw.toString(), "", "")
+            val user = User(usern.toString(), passw.toString(), "", "")
+            viewModel.addUser(user)
+            Toast.makeText(context, "New User Succesfully Created", Toast.LENGTH_SHORT).show()
+        }
+        //
         viewModel = ViewModelProvider(this).get(RegisterViewModel::class.java)
-        databinding.user = User("", "", "", "")
         databinding.savelistener = this
+
+
         /*val btnRegister = view.findViewById<Button>(R.id.btnRegis)
         var username = view.findViewById<EditText>(R.id.txtRegisUser)
         var password = view.findViewById<EditText>(R.id.txtRegisPassword)
@@ -52,7 +66,7 @@ class RegisterFragment : Fragment(), RegisterClickListener {
     }
 
     override fun onButtonRegisterClick(v: View, user: User) {
-        viewModel.addUser(user)
-        Toast.makeText(v.context, "New User Succesfully Created", Toast.LENGTH_SHORT).show()
+        /*viewModel.addUser(user)
+        Toast.makeText(v.context, "New User Succesfully Created", Toast.LENGTH_SHORT).show()*/
     }
 }
