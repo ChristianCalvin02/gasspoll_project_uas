@@ -44,6 +44,8 @@ class RegisterFragment : Fragment(), RegisterClickListener {
             val user = User(usern.toString(), passw.toString(), "", "")
             viewModel.addUser(user)
             Toast.makeText(context, "New User Succesfully Created", Toast.LENGTH_SHORT).show()
+            val action = RegisterFragmentDirections.actionRegisterFragmentToItemHome()
+            Navigation.findNavController(it).navigate(action)
         }
         //
         viewModel = ViewModelProvider(this).get(RegisterViewModel::class.java)

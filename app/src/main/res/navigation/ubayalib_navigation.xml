@@ -80,6 +80,9 @@
         <action
             android:id="@+id/action_registerFragment_to_itemProfile"
             app:destination="@id/itemProfile" />
+        <action
+            android:id="@+id/action_registerFragment_to_itemHome2"
+            app:destination="@id/itemHome" />
     </fragment>
     <fragment
         android:id="@+id/itemRecom"
