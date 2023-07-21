@@ -48,7 +48,7 @@ class LibraryDetailFragment : Fragment() {
         }*/
         val btnSewa = view.findViewById<Button>(R.id.btnSewa)
         btnSewa.setOnClickListener {
-
+            Toast.makeText(context, "Sewa berhasil ditambahkan", Toast.LENGTH_SHORT).show()
         }
 
         ObserveViewModels()
