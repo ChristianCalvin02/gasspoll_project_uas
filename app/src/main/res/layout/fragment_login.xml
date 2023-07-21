@@ -9,7 +9,7 @@
             type="com.example.projectuts_ubayalibrary_160420034.model.User" />
         <variable
             name="registrationButton"
-            type="com.example.projectuts_ubayalibrary_160420034.view.LoginToRegisterClickListener" />
+            type="com.example.projectuts_ubayalibrary_160420034.view.LoginListener" />
     </data>
 
     <FrameLayout
@@ -89,7 +89,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:text="Register"
-                android:onClick="@{registrationButton::onButtonToRegisterClick}"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView4" />
 

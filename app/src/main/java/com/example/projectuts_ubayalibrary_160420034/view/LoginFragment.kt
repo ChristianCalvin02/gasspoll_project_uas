@@ -41,7 +41,7 @@ class LoginFragment : Fragment(), LoginListener{
         val btnSubmit = view.findViewById<Button>(R.id.btnSubmit)
         btnRegis.setOnClickListener{
             val action = LoginFragmentDirections.actionLoginFragmentToRegisterFragment()
-            Navigation.findNavController(it).navigate(action)
+            Navigation.findNavController(view).navigate(action)
         }
 
         //val btnSubmit = view.findViewById<Button>(R.id.btnSubmit)
@@ -59,8 +59,10 @@ class LoginFragment : Fragment(), LoginListener{
     }
 
     override fun onButtonToRegisterClick(v: View) {
-        val action = LoginFragmentDirections.actionLoginFragmentToRegisterFragment()
-        Navigation.findNavController(v).navigate(action)
+        TODO("Not yet implemented")
+        //val action = LoginFragmentDirections.actionLoginFragmentToRegisterFragment()
+        //Navigation.findNavController(v).navigate(action)
+        //Toast.makeText(context, "r", Toast.LENGTH_SHORT).show()
     }
 
     override fun onButtonSubmit(v: View, user: User) {

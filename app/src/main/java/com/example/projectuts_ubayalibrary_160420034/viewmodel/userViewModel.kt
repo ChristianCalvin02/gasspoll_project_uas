@@ -25,21 +25,22 @@ class userViewModel(application: Application):AndroidViewModel(application), Cor
     private val job = Job()
 
 
-    /*val TAG ="volleyTag"
-    private var queue: RequestQueue? = null*/
+    val TAG ="volleyTag"
+    private var queue: RequestQueue? = null
+
     override val coroutineContext: CoroutineContext
         get() = job + Dispatchers.IO
 
     fun show(user_name: String, password: String){
         loadingLD.value = true
         userLoadErrorLD.value = false
-
+/*
         launch {
             val db = buildDB2(getApplication())
             db.userDao().selectUser(user_name, password)
-        }
-        /*queue = Volley.newRequestQueue(getApplication())
-        val url = "https://project333401.000webhostapp.com/anmp_project/ubayaLibraryUser.php?id=$id"
+        }*/
+        queue = Volley.newRequestQueue(getApplication())
+        val url = "https://project333401.000webhostapp.com/anmp_project/ubayaLibraryUser.php?id"
 
         val stringRequest = StringRequest(
             Request.Method.GET, url,
@@ -57,6 +58,6 @@ class userViewModel(application: Application):AndroidViewModel(application), Cor
         )
 
         stringRequest.tag = TAG
-        queue?.add(stringRequest)*/
+        queue?.add(stringRequest)
     }
 }
